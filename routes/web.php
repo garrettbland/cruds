@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+//this makes laravel use the vue router. Sends user back to the initial vue page where it was initiated and then let vue take over routing
+Route::get('/{vue_capture?}', function () {
+   return view('welcome');
+})->where('vue_capture', '^(?!storage).*$');
